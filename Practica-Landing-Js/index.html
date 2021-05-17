@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head xmlns="http://www.w3.org/1999/xhtml">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+
+        <link rel="icon" href="/images/pokedex.svg">
+        <title> Pokédex </title>
+    </head>
+
+    <body>
+        <header class="main-header">
+            <nav>
+                <button class="main-header__icon" onclick=checkPage()>
+                    <!--<img src="/images/pokedex.svg" alt="Kiwi standing on oval">-->
+                </a>
+                <button onclick=fullList()>Listado completo</button>
+            </nav>
+        </header>
+       
+
+       
+        <div class="main-content">
+            <section class="main-content__search">
+                <h2>Buscar por nombre o ID</h2>
+                <form onsubmit="return search(pokemon);" class="main-content__search-form">
+                    <input name="pokemon" type="text" placeholder="Pokémon o id del pokémon...">
+                    <input type="submit" value="Buscar">
+                </form>
+            </section>
+
+            <section class="main-content__list">
+                <h2 class="main-content__list-h2">Lista de todos los pokémons en la pokedex</h2>
+                <button class="main-content__list-button" onclick=checkList()>Listado</button>
+                <div class="main-content__list-show"></div>
+                <div class="main-content__list-buttons"></div>
+            </section>       
+        </div>
+
+        
+        <footer class="main-footer">
+            <div class="main-footer__social">
+                <a href="https://www.facebook.com/PokemonOficialES">
+                    <img src="images/facebook.svg">
+                </a>
+                <a href="https://www.youtube.com/user/PokemonOficialES">
+                    <img src="images/youtube.svg">
+                </a>
+                <a href="https://twitter.com/Pokemon_ES_ESP">
+                    <img src="images/twitter.svg">
+                </a>
+                <a href="https://www.instagram.com/PokemonESP/">
+                    <img src="images/instagram.svg">
+                </a>
+            </div>
+            <div class="main-footer__map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.8936291495293!2d139.71694111567368!3d35.728834480183174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d6f044d6725%3A0x5c5c669ed9f5c455!2sPok%C3%A9mon%20Center%20Mega%20Tokyo!5e0!3m2!1ses!2ses!4v1621247425060!5m2!1ses!2ses" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </footer>
+
+        
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+        <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+
+        <script src="index.js"></script> 
+        <script src="list.js"></script> 
+        <script src="detail.js"></script> 
+    </body>
+
+</html> 
