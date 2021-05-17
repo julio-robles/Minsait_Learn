@@ -1,5 +1,8 @@
-# Minsait_Learn\n
-#Trabajo realizados por Julio Robles Robles\n
+# Minsait_Learn
+#Trabajo realizados por Julio Robles Robles
 
-Práctica 1  ->  Practica-Webpage-BEM-SCSS-Flexbox\n
-Práctica 2  ->  Practica-Landing-Js\n
+
+
+Práctica 1  ->  Practica-Webpage-BEM-SCSS-Flexbox
+
+Práctica 2  ->  Practica-Landing-Js
