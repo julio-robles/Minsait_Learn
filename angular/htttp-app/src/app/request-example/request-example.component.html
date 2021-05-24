@@ -1,7 +1,12 @@
+<h3>Buscar pokémon ⬇️</h3>
+<input type="text" [(ngModel)]="filter" (ngModelChange)="onChangeFilter($event)" />
+
 <div *ngIf="characterList">
     <h3>Pokemon List!</h3>
-    <div *ngFor="let pokemon of characterList">
-      <h4>{{ pokemon.id }} - {{ pokemon.name }}</h4>
-      <img [src]="pokemon.image" [alt]="pokemon.name">
+    <div *ngFor="let pokemon of characterListFilter">
+      <a [routerLink]="['/pokemon/' + pokemon.id]">
+        <h4>{{ pokemon.id }} - {{ pokemon.name }}</h4>
+        <img [src]="pokemon.image" [alt]="pokemon.name">
+      </a>
     </div>
-  </div>
+</div>

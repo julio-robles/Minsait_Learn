@@ -8,15 +8,21 @@ import { RequestExampleComponent } from './request-example/request-example.compo
 import { HttpClientModule } from '@angular/common/http';
 import { RequestExampleService } from './request-example/services/request-example.service';
 
+
+import { FormsModule } from '@angular/forms';
+import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    RequestExampleComponent
+    RequestExampleComponent,
+    PokemonDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [RequestExampleService],
   bootstrap: [AppComponent]
