@@ -13,6 +13,9 @@ import { PokemonHomeComponent } from './home-pokemon/home-pokemon.component';
 import { PokemonComponent } from './list-pokemons/list-pokemon/list-pokemon.component';
 import { PokemonListComponent } from './list-pokemons/list-pokemons.component';
 import { PokemonDetailComponent } from './detail-pokemon/detail-pokemon.component';
+import { HomePokemonInfoComponent } from './home-pokemon/home-pokemon-info/home-pokemon-info.component';
+import { HomePokemonListComponent } from './home-pokemon/home-pokemon-list/home-pokemon-list.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { PokemonDetailComponent } from './detail-pokemon/detail-pokemon.componen
     PokemonListComponent,
     PokemonComponent,
     PokemonDetailComponent,
+    HomePokemonInfoComponent,
+    HomePokemonListComponent,
+    HeaderComponent,
     
   ],
   imports: [
