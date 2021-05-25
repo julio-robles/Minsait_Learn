@@ -4,8 +4,8 @@ Trabajos realizados por Julio Robles Robles
 
 
 
-Práctica 1  ->  Practica-Webpage-BEM-SCSS-Flexbox
+Práctica 1  ->  Práctica-Webpage-BEM-SCSS-Flexbox
 
-Práctica 2  ->  Practica-Landing-Js
+Práctica 2  ->  Práctica-Landing-Js
 
-Práctica 3  ->  angular (aún en desarrollo)
+Práctica 3  ->  Práctica-angular (aún en desarrollo)
