@@ -6,10 +6,7 @@
   <div *ngIf="CharacterResponseInterface.results">
       <h3>Pokemon List!</h3>
       <div *ngFor="let pokemon of CharacterResponseInterface.results">
-        <a [routerLink]="['/pokemon/' + pokemon.id]">
-          <h4>{{ pokemon.id }} - {{ pokemon.name }}</h4>
-          <img [src]="pokemon.image" [alt]="pokemon.name">
-        </a>
+        <PokemonComponent [parentToChild]='pokemon'></PokemonComponent>
       </div>
       <button *ngIf="CharacterResponseInterface.previous" (click)="back()">Back</button>
       <button *ngIf="CharacterResponseInterface.next" (click)="next()">Next</button>
@@ -19,10 +16,7 @@
   <div *ngIf="characterListFilter">
       <h3>Pokemon List!</h3>
       <div *ngFor="let pokemon of characterListFilter">
-        <a [routerLink]="['/pokemon/' + pokemon.id]">
-          <h4>{{ pokemon.id }} - {{ pokemon.name }}</h4>
-          <img [src]="pokemon.image" [alt]="pokemon.name">
-        </a>
+        <PokemonComponent [parentToChild]='pokemon'></PokemonComponent>
       </div>
   </div>
 </div>

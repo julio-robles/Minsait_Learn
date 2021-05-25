@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RequestExampleComponent } from './request-example/request-example.component';
-import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component'
+import { PokemonListComponent } from './list-pokemons/list-pokemons.component';
+import { PokemonDetailComponent } from './detail-pokemon/detail-pokemon.component';
+import { PokemonHomeComponent } from './home-pokemon/home-pokemon.component';
+
 const routes: Routes = [
-  //{ path: '', component },
-  { path: 'pokemons', component: RequestExampleComponent },
-  { path: 'pokemon/:pokemonID', component: PokemonDetailComponent},
+  { path: '', component:  PokemonHomeComponent },
+  { path: 'pokemons', component: PokemonListComponent },
+  { path: 'pokemon/:pokemonID', component: PokemonDetailComponent },
 ];
 
 @NgModule({

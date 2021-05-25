@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-detail',
-  templateUrl: './pokemon-detail.component.html',
-  styleUrls: ['./pokemon-detail.component.scss']
+  templateUrl: './detail-pokemon.component.html',
+  styleUrls: ['./detail-pokemon.component.scss']
 })
 export class PokemonDetailComponent implements OnInit {
   pokemonID: string;

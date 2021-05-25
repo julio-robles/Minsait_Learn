@@ -3,13 +3,13 @@ import { CharacterInterface, CharacterResponseInterface } from './models/pokemon
 import { RequestExampleService } from './services/request-example.service';
 
 @Component({
-  selector: 'app-request-example',
-  templateUrl: './request-example.component.html',
-  styleUrls: ['./request-example.component.scss']
+  selector: 'app-list-pokemons',
+  templateUrl: './list-pokemons.component.html',
+  styleUrls: ['./list-pokemons.component.scss']
 })
 
 
-export class RequestExampleComponent implements OnInit {
+export class PokemonListComponent implements OnInit {
   // declaramos la variable donde almacenamos nuestro resultado
   CharacterResponseInterface: CharacterResponseInterface;
   characterList: CharacterInterface[] = [];
@@ -17,11 +17,13 @@ export class RequestExampleComponent implements OnInit {
   characterListFull: CharacterInterface[] = [];
   filter: string;
   baseURL: string = 'https://pokeapi.co/api/v2/pokemon/?limit=';
+  
+  limit: number = 493; //Utilizo solo las 4 primeras temporadas por tema de rendimiento!!!
 
   // Llamamos a nuestro servicio o inicializamos servicio
   constructor(private requestExampleService: RequestExampleService) {
     this.filter = '';
-    this.requestExampleService.getCharacters(this.baseURL+700).subscribe( async (data: CharacterResponseInterface) => {   
+    this.requestExampleService.getCharacters(this.baseURL+this.limit).subscribe( async (data: CharacterResponseInterface) => {   
       const results: CharacterInterface[] = data.results;
       let pokemons = [];
       for (let pokemon in results){

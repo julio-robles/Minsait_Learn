@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequestExampleComponent } from './request-example.component';
+import { HomePokemonComponent } from './home-pokemon.component';
 
-describe('RequestExampleComponent', () => {
-  let component: RequestExampleComponent;
-  let fixture: ComponentFixture<RequestExampleComponent>;
+describe('HomePokemonComponent', () => {
+  let component: HomePokemonComponent;
+  let fixture: ComponentFixture<HomePokemonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RequestExampleComponent ]
+      declarations: [ HomePokemonComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RequestExampleComponent);
+    fixture = TestBed.createComponent(HomePokemonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
