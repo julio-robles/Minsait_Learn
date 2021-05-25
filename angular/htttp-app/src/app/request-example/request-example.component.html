@@ -9,4 +9,6 @@
         <img [src]="pokemon.image" [alt]="pokemon.name">
       </a>
     </div>
+    <button *ngIf="CharacterResponseInterface.previous" (click)="back()">Back</button>
+    <button *ngIf="CharacterResponseInterface.next" (click)="next()">Next</button>
 </div>

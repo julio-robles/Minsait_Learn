@@ -6,12 +6,8 @@ export interface CharacterInterface {
   }
   
   export interface CharacterResponseInterface {
-    info: {
-      count: number;
-      next: string;
-      offset: number;
-      limit: number;
-      prev: string;
-    };
+    count: number;
+    next: string;
+    previous: string;
     results: CharacterInterface[];
   }
