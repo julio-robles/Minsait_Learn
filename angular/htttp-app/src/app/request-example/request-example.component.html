@@ -1,14 +1,28 @@
 <h3>Buscar pokémon ⬇️</h3>
 <input type="text" [(ngModel)]="filter" (ngModelChange)="onChangeFilter($event)" />
 
-<div *ngIf="characterList">
-    <h3>Pokemon List!</h3>
-    <div *ngFor="let pokemon of characterListFilter">
-      <a [routerLink]="['/pokemon/' + pokemon.id]">
-        <h4>{{ pokemon.id }} - {{ pokemon.name }}</h4>
-        <img [src]="pokemon.image" [alt]="pokemon.name">
-      </a>
-    </div>
-    <button *ngIf="CharacterResponseInterface.previous" (click)="back()">Back</button>
-    <button *ngIf="CharacterResponseInterface.next" (click)="next()">Next</button>
+
+<div *ngIf="!filter">
+  <div *ngIf="CharacterResponseInterface.results">
+      <h3>Pokemon List!</h3>
+      <div *ngFor="let pokemon of CharacterResponseInterface.results">
+        <a [routerLink]="['/pokemon/' + pokemon.id]">
+          <h4>{{ pokemon.id }} - {{ pokemon.name }}</h4>
+          <img [src]="pokemon.image" [alt]="pokemon.name">
+        </a>
+      </div>
+      <button *ngIf="CharacterResponseInterface.previous" (click)="back()">Back</button>
+      <button *ngIf="CharacterResponseInterface.next" (click)="next()">Next</button>
+  </div>
+</div>
+<div *ngIf="filter">
+  <div *ngIf="characterListFilter">
+      <h3>Pokemon List!</h3>
+      <div *ngFor="let pokemon of characterListFilter">
+        <a [routerLink]="['/pokemon/' + pokemon.id]">
+          <h4>{{ pokemon.id }} - {{ pokemon.name }}</h4>
+          <img [src]="pokemon.image" [alt]="pokemon.name">
+        </a>
+      </div>
+  </div>
 </div>
