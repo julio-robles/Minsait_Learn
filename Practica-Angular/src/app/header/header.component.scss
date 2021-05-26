@@ -7,19 +7,25 @@
     width: 100%;
     display: flex;
     background-color: gray;
-    justify-content: space-around;
+    justify-content: space-between;
 
-    & a{
+    & nav{
         display: flex;
-        text-decoration: none;
-        color: inherit;
-        &:hover{
+        width: 30%;
+        justify-content: space-around;
+
+        & a{
+            display: flex;
             text-decoration: none;
-        }
-        & img{
-            width:50px;
-            padding-top: 5px;
-            padding-bottom: 5px;
+            color: inherit;
+            &:hover{
+                text-decoration: none;
+            }
+            & img{
+                width:50px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
         }
     }
 }

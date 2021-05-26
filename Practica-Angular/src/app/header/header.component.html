@@ -1,9 +1,15 @@
 <div class="main-header">
-    <a class="main-header__icon" [routerLink]="['']">
-        <img src="assets/pokeball.svg">
-    </a>
+    <nav>
+        <a class="main-header__icon" [routerLink]="['']">
+            <img src="assets/pokeball.svg">
+        </a>
 
-    <a [routerLink]="['pokemons']">
-        <h2>Lista</h2>
-    </a>
+        <a [routerLink]="['pokemons']">
+            <h2 translate>header.list</h2>
+        </a>
+    </nav>
+    <div class= 'main-header__idioms'>
+        <button (click)="useLanguage('es')">es</button>
+        <button (click)="useLanguage('en')">en</button>
+    </div>
 </div>

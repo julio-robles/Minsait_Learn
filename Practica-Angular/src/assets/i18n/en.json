@@ -1,0 +1,27 @@
+{
+    "home": {
+        "title": "Main hall of Pokémons",
+        "pokemon-info": {
+            "one": "Pokémon are a class of creatures inspired by real animals, insects, objects, plants or mythological creatures. Players take the role of Pokémon Trainers and have three general objectives: complete the Pokédex by collecting all available Pokémon species found, train a team of powerful Pokémon from those they have caught to compete against other trainers. The ultimate goal of the game is to go on to win the Pokémon League and become the regional champion. The themes of collecting, training and battling are present in almost every version of the Pokémon franchise, including the video games, the anime and manga series, and the Pokémon trading card game.",
+            "two": "In the main saga, the player will embark on a journey through a specific region of the Pokémon world. In certain cities there are a number of powerful trainers, known as Gym Leaders, that the trainer must defeat in order to obtain gym medals and be able to progress. Once all of the region's medals are collected, the trainer is eligible to challenge for the region's Pokémon League, where four of the best trainers await him or her to face for the title of Champion.",
+            "three": "The saga also has secondary story arcs: In most titles there is an antagonist team, a gang whose plans are related to the trafficking, exploitation or mistreatment of Pokémon and which the player must defeat. Many titles also involve the player being able to unravel mysteries about the existence of legendary or mythical Pokémon."
+        },
+        "web": {
+            "title": "Explanation of website",
+            "info": {
+                "one": " Web dedicated to Pokémon sampling, it makes requests to the pokeapi.co API. Two types of requests are made to the API, one to collect several pokemons in a class, and another request to collect specific data for each Pokémon.",
+                "two": "The complete list of Pokemons is used only for the filtering of pokemons, for the sampling of the list a list of only 25 Pokemons is used, in this list we have information about the next list of 25 pokemons as well as the previous one. This aspect is something to improve, since the correct thing would be to download all the Pokemons at once and collect from that same list the 25 Pokemons to show.",
+                "three": "Depending on the equipment, it may take a long time to load all the pokemons.",
+                "four": "Translation only done to the main part of the website, translating the whole website would be repeating the same steps, it is a slow and tedious process and that is why I decided to translate only this part of the website."
+            }
+        }
+    },
+
+    "header":{
+        "list": "List"
+    },
+
+    "footer":{
+        "about": "About us"
+    }
+}
