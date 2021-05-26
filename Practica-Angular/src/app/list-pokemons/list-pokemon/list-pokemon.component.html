@@ -1,4 +1,6 @@
 <a [routerLink]="['/pokemon/' + pokemon.id]">
-    <h4>{{ pokemon.id }} - {{ pokemon.name }}</h4>
-    <img [src]="pokemon.image" [alt]="pokemon.name">
+    <div class='main-content__list-element'>
+        <h4>{{ pokemon.id }} - {{ pokemon.name }}</h4>
+        <img [src]="pokemon.image" [alt]="pokemon.name">
+    </div>
 </a>

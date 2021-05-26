@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Pokemon } from './pokemon.interface';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -7,27 +8,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./detail-pokemon.component.scss']
 })
 export class PokemonDetailComponent implements OnInit {
-  pokemonID: string;
-  pokemonName: string;
-  pokemonFrontImg: string;
-  pokemonBackImg: string;
-  pokemonTypes: string[] = [''];
+  id: string;
+  types: string[] = [''];
+  pokemon: Pokemon;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(){
     this.route.paramMap.subscribe( params => {
-      this.pokemonID = params.get('pokemonID');
-      fetch('https://pokeapi.co/api/v2/pokemon/' + this.pokemonID)
+      this.id = params.get('pokemonID');
+      fetch('https://pokeapi.co/api/v2/pokemon/' + this.id)
       .then( response => response.json())
       .then( data => {
-        //console.log(data)
-        this.pokemonName = data.name;
-        this.pokemonFrontImg = data.sprites.front_default;
-        this.pokemonBackImg = data.sprites.back_default;
-        this.pokemonTypes;
         for (let type in data.types){
-          this.pokemonTypes.push(data.types[type].type.name);
-        }        
+          this.types.push(data.types[type].type.name);
+        }     
+        this.pokemon = {id : this.id, name : data.name, frontImage : data.sprites.front_default, backImage : data.sprites.back_default, types : this.types};   
       });
     });
   }

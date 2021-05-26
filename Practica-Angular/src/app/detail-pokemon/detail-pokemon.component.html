@@ -1,8 +1,5 @@
-<h2>{{pokemonID}}</h2>
-<h2>{{pokemonName}}</h2>
-<img src={{pokemonFrontImg}}>
-<img src={{pokemonBackImg}}>
-
-<div *ngFor="let pokemonType of pokemonTypes">
-    <span>{{pokemonType}}</span>
+<div class = 'detail'>
+    <app-detail-pokemon-head [parentToChild]='[pokemon.id, pokemon.name]'></app-detail-pokemon-head>
+    <app-detail-pokemon-images [parentToChild]='[pokemon.frontImage, pokemon.backImage]'></app-detail-pokemon-images>
+    <app-detail-pokemon-types [parentToChild]='pokemon.types'></app-detail-pokemon-types>
 </div>

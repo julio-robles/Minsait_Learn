@@ -1,0 +1,15 @@
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.main-content__list-element{
+    padding: 10px;
+    margin: 5px;
+    &:hover{
+        background-color: #ECECEC;
+        border-radius: 10px;
+    }
+    & h4{
+        margin-top: 0;
+    }
+}

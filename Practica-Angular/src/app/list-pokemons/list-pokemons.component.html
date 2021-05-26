@@ -1,22 +1,28 @@
-<h3>Buscar pokémon ⬇️</h3>
-<input type="text" [(ngModel)]="filter" (ngModelChange)="onChangeFilter($event)" />
+<div class='main-content__list'>
+  <h1>Buscar pokémon</h1>
+  <input class='main-content__list-search' type="text" [(ngModel)]="filter" (ngModelChange)="onChangeFilter($event)" />
 
 
-<div *ngIf="!filter">
-  <div *ngIf="CharacterResponseInterface.results">
-      <h3>Pokemon List!</h3>
-      <div *ngFor="let pokemon of CharacterResponseInterface.results">
-        <PokemonComponent [parentToChild]='pokemon'></PokemonComponent>
-      </div>
-      <button *ngIf="CharacterResponseInterface.previous" (click)="back()">Back</button>
-      <button *ngIf="CharacterResponseInterface.next" (click)="next()">Next</button>
+  <div *ngIf="!filter">
+    <div *ngIf="CharacterResponseInterface.results">
+        <h1>Lista de Pokémons</h1>
+        <div class='main-content__list-show'>
+          <div *ngFor="let pokemon of CharacterResponseInterface.results">
+            <PokemonComponent [parentToChild]='pokemon'></PokemonComponent>
+          </div>
+        </div>
+        <button class='main-content__list-back' *ngIf="CharacterResponseInterface.previous" (click)="back()"></button>
+        <button class='main-content__list-next' *ngIf="CharacterResponseInterface.next" (click)="next()"></button>
+    </div>
   </div>
-</div>
-<div *ngIf="filter">
-  <div *ngIf="characterListFilter">
-      <h3>Pokemon List!</h3>
-      <div *ngFor="let pokemon of characterListFilter">
-        <PokemonComponent [parentToChild]='pokemon'></PokemonComponent>
-      </div>
+  <div *ngIf="filter">
+    <div *ngIf="characterListFilter">
+        <h1>Lista de Pokémons</h1>
+        <div class='main-content__list-show'>
+          <div *ngFor="let pokemon of characterListFilter">
+            <PokemonComponent [parentToChild]='pokemon'></PokemonComponent>
+          </div>
+        </div>
+    </div>
   </div>
 </div>

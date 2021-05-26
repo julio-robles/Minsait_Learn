@@ -1,0 +1,25 @@
+.main-header{
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: var(--main-header__height);
+    width: 100%;
+    display: flex;
+    background-color: gray;
+    justify-content: space-around;
+
+    & a{
+        display: flex;
+        text-decoration: none;
+        color: inherit;
+        &:hover{
+            text-decoration: none;
+        }
+        & img{
+            width:50px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    }
+}

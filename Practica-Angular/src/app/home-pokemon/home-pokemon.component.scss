@@ -1,0 +1,7 @@
+.main-content__home{
+    margin-left: 10%;
+    margin-right: 10%;
+    & h1, app-home-pokemon-list{
+        text-align: center;
+    }
+}

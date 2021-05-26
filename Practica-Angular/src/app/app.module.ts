@@ -16,6 +16,10 @@ import { PokemonDetailComponent } from './detail-pokemon/detail-pokemon.componen
 import { HomePokemonInfoComponent } from './home-pokemon/home-pokemon-info/home-pokemon-info.component';
 import { HomePokemonListComponent } from './home-pokemon/home-pokemon-list/home-pokemon-list.component';
 import { HeaderComponent } from './header/header.component';
+import { HomeWebInfoComponent } from './home-pokemon/home-web-info/home-web-info.component';
+import { DetailPokemonHeadComponent } from './detail-pokemon/detail-pokemon-head/detail-pokemon-head.component';
+import { DetailPokemonImagesComponent } from './detail-pokemon/detail-pokemon-images/detail-pokemon-images.component';
+import { DetailPokemonTypesComponent } from './detail-pokemon/detail-pokemon-types/detail-pokemon-types.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { HeaderComponent } from './header/header.component';
     HomePokemonInfoComponent,
     HomePokemonListComponent,
     HeaderComponent,
+    HomeWebInfoComponent,
+    DetailPokemonHeadComponent,
+    DetailPokemonImagesComponent,
+    DetailPokemonTypesComponent,
     
   ],
   imports: [

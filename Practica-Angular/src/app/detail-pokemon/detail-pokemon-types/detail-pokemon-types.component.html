@@ -1,0 +1,5 @@
+<div class= 'detail-types'>
+    <div *ngFor="let pokemonType of pokemon">
+        <h3 *ngIf="pokemonType" [ngClass]="'detail-type detail-type-'+pokemonType">{{pokemonType}}</h3>
+    </div>
+</div>
