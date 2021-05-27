@@ -6,9 +6,10 @@
     &__github{
         display: flex;
         text-decoration: none;
-        color: #a304fa;
+        color: #a304fa !important;
+        align-items: center;
         &:visited{
-            color: #a304fa;
+            color: #a304fa !important;
         }
         & img{
             align-self: center;
@@ -17,18 +18,26 @@
             height: 30px;
         }
     }
+    &__flaticon{
+        display: flex;
+        text-decoration: none;
+        color: #54D49B !important;
+        align-items: center;
+        &:visited{
+            color: #54D49B !important;
+        }
+        & img{
+            align-self: center;
+            margin-left: 10px;
+            width: 60px;
+            height: 60px;
+        }
+    }
     &__thanks{
         &-element{
             margin: 30px;
             & h3{
                 margin: 0;
-            }
-            & a{
-                text-decoration: none;
-                color: #a304fa;
-                &:visited{
-                    color: #a304fa;
-                }
             }
         }
     }
