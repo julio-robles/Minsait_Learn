@@ -28,15 +28,6 @@
         "type2": "fighting"
       },
       "id": "3"
-    },
-    {
-      "name": "perrete",
-      "frontImage": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a79eac92-1c3d-49d6-9eed-99898198340d/d417se3-d3718b6f-df70-4ed4-91f5-4128a3be3f73.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E3OWVhYzkyLTFjM2QtNDlkNi05ZWVkLTk5ODk4MTk4MzQwZFwvZDQxN3NlMy1kMzcxOGI2Zi1kZjcwLTRlZDQtOTFmNS00MTI4YTNiZTNmNzMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.2lfHmkiCODK8kaObvsc3gQd6ElWpRRyr5Wg601oTZY0",
-      "backImage": "https://pngimage.net/wp-content/uploads/2018/05/arctic-wolf-png-3.png",
-      "types": [
-        "normal"
-      ],
-      "id": "8OFhWSW"
     }
   ]
 }

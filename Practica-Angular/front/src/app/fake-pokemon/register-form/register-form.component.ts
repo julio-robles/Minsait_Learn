@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, TemplateRef, ViewRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { fakePokemon } from '../fake-pokemon.interface';
 import { compareTypes } from './type2-validator';
-import { ViewFakePokemonsComponent } from '../view-fake-pokemons/view-fake-pokemons.component';
+
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -37,10 +37,10 @@ export class SignupFormComponent implements OnInit {
 	 }
 	
 	// El OnInit -> Vacío
-	ngOnInit() {/* Empty */}
+	async ngOnInit() {}
 	
 	//Función accionada al clickar en submit
-	public onSubmit(): void {
+	public async onSubmit(): Promise<void> {
 	    // El usuario ha pulsado en submit->cambia a true submitted
 	    this.submitted = true;
 			// Si el formulario es valido
@@ -57,25 +57,37 @@ export class SignupFormComponent implements OnInit {
 				backImage: this.userRegisterForm.get('backImage').value,
 				types: types,
 			};
-				console.log(pokemon);
-				fetch("http://localhost:3000/pokemons", {
-					method: 'POST',
-					mode: 'cors',
-					cache: 'no-cache',
-					credentials: 'same-origin',
-					headers: {
-					'Content-Type': 'application/json'
-					},
-					redirect: 'follow',
-					referrerPolicy: 'no-referrer', 
-					body: JSON.stringify(pokemon) 
-				});
+			await fetch("http://localhost:3000/pokemons", {
+				method: 'POST',
+				mode: 'cors',
+				cache: 'no-cache',
+				credentials: 'same-origin',
+				headers: {
+				'Content-Type': 'application/json'
+				},
+				redirect: 'follow',
+				referrerPolicy: 'no-referrer', 
+				body: JSON.stringify(pokemon) 
+			});
 	      // Reseteamos todos los campos y el indicador de envío o submitted
-	      this.userRegisterForm.reset();
-	      this.submitted = false;
 	    }
+		this.userRegisterForm.reset();
+		this.submitted = false;
+		this.removeChild(); 
+		this.addChild();
 	}
-	public hola(){
-		console.log("hola mundo");
+
+	@ViewChild('vc', { read: ViewContainerRef }) vc: ViewContainerRef;
+	@ViewChild('tpl', { read: TemplateRef }) tpl: TemplateRef<any>;
+
+	addChild(){
+		let view = this.tpl.createEmbeddedView(null);
+		this.vc.insert(view);
+	}
+
+	removeChild(){
+		if (document.getElementsByClassName("firstView")[0])
+			document.getElementsByClassName("firstView")[0].innerHTML= '';
+		this.vc.clear();
 	}
 }

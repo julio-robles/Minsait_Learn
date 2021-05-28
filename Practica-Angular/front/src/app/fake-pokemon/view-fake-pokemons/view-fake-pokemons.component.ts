@@ -12,8 +12,8 @@ export class ViewFakePokemonsComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(){
-    fetch("http://localhost:3000/pokemons")
+  async ngOnInit(){
+    await fetch("http://localhost:3000/pokemons")
     .then( async response => response.json())
     .then(async data => {
       let pokemon: fakePokemon;

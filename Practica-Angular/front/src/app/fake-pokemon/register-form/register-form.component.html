@@ -54,3 +54,12 @@
 	<button type="submit" [disabled]="!userRegisterForm.valid">Submit</button>
 
 </form>
+
+
+<div class="firstView">
+    <app-view-fake-pokemons></app-view-fake-pokemons>
+</div>
+<ng-container #vc></ng-container>
+<ng-template #tpl>
+    <app-view-fake-pokemons></app-view-fake-pokemons>
+</ng-template>
