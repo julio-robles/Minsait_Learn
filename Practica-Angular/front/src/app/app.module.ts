@@ -24,7 +24,8 @@ import { DetailPokemonTypesComponent } from './detail-pokemon/detail-pokemon-typ
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { FakePokemonComponent } from './fake-pokemon/fake-pokemon.component';
-import { SignupFormComponent } from './fake-pokemon/register-form/register-form.component'
+import { SignupFormComponent } from './fake-pokemon/register-form/register-form.component';
+import { ViewFakePokemonsComponent } from './fake-pokemon/view-fake-pokemons/view-fake-pokemons.component'
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { SignupFormComponent } from './fake-pokemon/register-form/register-form.
     FooterComponent,
     FakePokemonComponent,
     SignupFormComponent,
+    ViewFakePokemonsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { pokemonRegister } from '../pokemonRegister.interface';
+import { fakePokemon } from '../fake-pokemon.interface';
 import { compareTypes } from './type2-validator';
-
+import { ViewFakePokemonsComponent } from '../view-fake-pokemons/view-fake-pokemons.component';
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -25,8 +25,8 @@ export class SignupFormComponent implements OnInit {
 		 // Podemos meter valores por defecto en las comillas
 	    this.userRegisterForm = this.formBuilder.group({
 	     	name: ['', [Validators.required, Validators.maxLength(20)]],
-			frontImage: ['', [Validators.required, Validators.maxLength(200)]],
-			backImage: ['', [Validators.required, Validators.maxLength(200)]],
+			frontImage: ['', [Validators.required, Validators.maxLength(1000)]],
+			backImage: ['', [Validators.required, Validators.maxLength(1000)]],
 			type1: ['', [Validators.required]],
 			type2: ['']
 	    },
@@ -51,16 +51,31 @@ export class SignupFormComponent implements OnInit {
 			let type2 = this.userRegisterForm.get('type2').value;
 			if (type2 != '') 
 				types.push(type2);
-			const pokemon: pokemonRegister = {
+			const pokemon: fakePokemon = {
 				name: this.userRegisterForm.get('name').value,
 				frontImage: this.userRegisterForm.get('frontImage').value,
 				backImage: this.userRegisterForm.get('backImage').value,
 				types: types,
 			};
 				console.log(pokemon);
+				fetch("http://localhost:3000/pokemons", {
+					method: 'POST',
+					mode: 'cors',
+					cache: 'no-cache',
+					credentials: 'same-origin',
+					headers: {
+					'Content-Type': 'application/json'
+					},
+					redirect: 'follow',
+					referrerPolicy: 'no-referrer', 
+					body: JSON.stringify(pokemon) 
+				});
 	      // Reseteamos todos los campos y el indicador de envío o submitted
 	      this.userRegisterForm.reset();
 	      this.submitted = false;
 	    }
-	  }
+	}
+	public hola(){
+		console.log("hola mundo");
+	}
 }
