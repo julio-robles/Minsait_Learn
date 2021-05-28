@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RequestExampleService } from './list-pokemons/services/request-example.service';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -22,6 +23,8 @@ import { DetailPokemonImagesComponent } from './detail-pokemon/detail-pokemon-im
 import { DetailPokemonTypesComponent } from './detail-pokemon/detail-pokemon-types/detail-pokemon-types.component';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
+import { FakePokemonComponent } from './fake-pokemon/fake-pokemon.component';
+import { SignupFormComponent } from './fake-pokemon/register-form/register-form.component'
 
 @NgModule({
   declarations: [
@@ -39,10 +42,12 @@ import { FooterComponent } from './footer/footer.component';
     DetailPokemonTypesComponent,
     AboutComponent,
     FooterComponent,
-    
+    FakePokemonComponent,
+    SignupFormComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
