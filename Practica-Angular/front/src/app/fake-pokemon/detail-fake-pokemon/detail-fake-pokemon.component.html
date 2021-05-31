@@ -1,0 +1,73 @@
+<div class="detail">
+    <h2>{{pokemon.id}} - {{pokemon.name}}</h2>
+
+    <div class=detail-images>
+        <img src={{pokemon.frontImage}}>
+        <img src={{pokemon.backImage}}>
+    </div>
+    
+    <div class= 'detail-types'>
+        <div *ngFor="let pokemonType of pokemon.types">
+            <h3 *ngIf="pokemonType" [ngClass]="'detail-type detail-type-'+pokemonType">{{pokemonType}}</h3>
+        </div>
+    </div>
+</div>
+
+
+<div class= "detail-update">
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userRegisterForm">
+        <!-- Fieldset del primer campo - name -->
+          <fieldset>
+              <label for="name">Nombre:</label>
+              <input type="text" id="name" formControlName="name" />
+                  <!-- Si el campo name es invalido / ha sido tocado / submitted = true -->
+              <div *ngIf="!userRegisterForm.get('name').valid &&
+                  (userRegisterForm.get('name').dirty || submitted)">
+              Introduce un nombre!
+              </div>
+          </fieldset>
+          <fieldset>
+              <label for="frontImage">URL de la imagen frontal:</label>
+              <input type="text" id="frontImage" formControlName="frontImage" />
+                  <!-- Si el campo frontImage es invalido / ha sido tocado / submitted = true -->
+              <div *ngIf="!userRegisterForm.get('frontImage').valid &&
+                  (userRegisterForm.get('frontImage').dirty || submitted)">
+              Introduce una URL válida!
+              </div>
+          </fieldset>	
+          <fieldset>
+              <label for="backImage">URL de la imagen trasera:</label>
+              <input type="text" id="backImage" formControlName="backImage" />
+                  <!-- Si el campo backImage es invalido / ha sido tocado / submitted = true -->
+              <div *ngIf="!userRegisterForm.get('backImage').valid &&
+                  (userRegisterForm.get('backImage').dirty || submitted)">
+              Introduce una URL válida!
+              </div>
+          </fieldset>	
+          <fieldset>
+              <label for="type1">Tipo 1:</label>
+              <select name="type1" formControlName="type1">
+                  <option [value]="type" *ngFor="let type of typeList1">{{type}}</option>
+              </select>
+              <div *ngIf="!userRegisterForm.get('type1').valid &&
+                  (userRegisterForm.get('type1').dirty || submitted)">
+              Selecciona un tipo!
+              </div>
+          </fieldset>		
+          <fieldset>
+              <label for="type2">Tipo 2:</label>
+              <select name="type2" formControlName="type2">
+                  <option [value]="type" *ngFor="let type of typeList2">{{type}}</option>
+              </select>
+              <div *ngIf="!userRegisterForm.get('type2').valid &&
+              (userRegisterForm.get('type1').dirty || submitted)">
+              Selecciona un tipo distinto al anterior!
+              </div>
+          </fieldset>	
+        <!-- Botón deshabilitado hasta que el formulario sea valid -->
+        <div class="detail-buttons">
+            <button (click)="deletePokemon()">Delete</button>
+            <button type="submit" [disabled]="!userRegisterForm.valid">Update</button>
+        </div>
+    </form>
+</div>

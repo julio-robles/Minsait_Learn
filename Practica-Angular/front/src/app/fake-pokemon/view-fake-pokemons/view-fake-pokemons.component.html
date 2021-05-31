@@ -1,6 +1,10 @@
-<div class="de">
-    <div *ngFor="let pokemon of pokemons">
-        <h1>{{pokemon.name}}</h1>
-        <img style="width: 170px;" src="{{pokemon.frontImage}}">
+<div class= "fake-pokemon__list">
+    <div class= "fake-pokemon__list-element" *ngFor="let pokemon of pokemons">
+        <a [routerLink]="['/fake-pokemon/' + pokemon.id]">
+            <div>
+                <h1>{{pokemon.id}} - {{pokemon.name}}</h1>
+                <img style="width: 170px;" src="{{pokemon.frontImage}}">
+            </div>
+        </a>
     </div>
 </div>

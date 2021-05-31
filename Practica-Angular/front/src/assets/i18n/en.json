@@ -11,8 +11,8 @@
             "info": {
                 "one": " Web dedicated to Pokémon sampling, it makes requests to the pokeapi.co API. Two types of requests are made to the API, one to collect several pokemons in a class, and another request to collect specific data for each Pokémon.",
                 "two": "The complete list of Pokemons is used only for the filtering of pokemons, for the sampling of the list a list of only 25 Pokemons is used, in this list we have information about the next list of 25 pokemons as well as the previous one. This aspect is something to improve, since the correct thing would be to download all the Pokemons at once and collect from that same list the 25 Pokemons to show.",
-                "three": "Depending on the equipment, it may take a long time to load all the pokemons.",
-                "four": "Translation only done to the main part of the website, translating the whole website would be repeating the same steps, it is a slow and tedious process and that is why I decided to translate only this part of the website."
+                "three": "Depending on the system, it may take a long time to load all the pokemons. ¡¡We are only the first 4 generations!!",
+                "four": "Translation only done to the main part of the website, translating the whole website would be repeating the same steps, it is a slow and tedious process and that is why I decided to translate only this part of the website. Use of Deepl.com."
             }
         }
     },

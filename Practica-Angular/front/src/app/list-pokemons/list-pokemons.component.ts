@@ -18,7 +18,7 @@ export class PokemonListComponent implements OnInit {
   filter: string;
   baseURL: string = 'https://pokeapi.co/api/v2/pokemon/?limit=';
   
-  limit: number = 493; //Utilizo solo las 4 primeras temporadas por tema de rendimiento!!!
+  limit: number = 493; //Utilizo solo las 4 primeras temporadas por rendimiento!!!
 
   // Llamamos a nuestro servicio o inicializamos servicio
   constructor(private requestExampleService: RequestExampleService) {

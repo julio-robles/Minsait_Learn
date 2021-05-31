@@ -1,0 +1,29 @@
+.mix-pokemons__list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &-element{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        padding: 10px;
+        margin: 5px;
+            &:hover{
+                background-color: #ECECEC;
+                border-radius: 10px;
+            }
+            & h4{
+                margin-top: 0;
+            }
+
+        & a{
+            text-decoration: none;
+            color: inherit;
+        }
+        & img{
+            width: 98px;
+        }
+    }
+}

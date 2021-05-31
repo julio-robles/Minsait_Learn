@@ -11,8 +11,8 @@
             "info": {
                 "one": "Web dedicada al muestreo de Pokémons, esta realiza peticiones a la API de pokeapi.co. Se realizan 2 tipos de peticiones a la API, una para recoger varios pokemons en una clase, y otra petición para coger datos específicos de cada Pokémon.",
                 "two": "El listado completo de Pokemons se utiliza solo para el filtrado de pokemons, para el muestreo del listado se utiliza una lista de tan solo 25 Pokémons, en esta lista tenemos información sobre la siguiente lista de 25 pokemons así como la anterior. Este aspecto es algo a mejorar, ya que lo correcto sería descargar todos los Pokemons de una vez y recoger de esa misma lista los 25 Pokemons a mostrar.",
-                "three": "Dependiendo del equipo puede tardar bastante en cargar todos los pokemons.",
-                "four": "Translation applied only to this part of the website, translating the whole website would be repeating the same steps, it is a slow and tedious process and that is why I decided to translate only this part of the website. Translation done with the help of deepl.com"
+                "three": "Dependiendo del equipo puede tardar bastante en cargar todos los pokemons. ¡¡Solo utilizamos las primeras 4 generaciones!!",
+                "four": "Translation only done to the main part of the website, translating the whole website would be repeating the same steps, it is a slow and tedious process and that is why I decided to translate only this part of the website. Use of Deepl.com."
             }
         }
     },

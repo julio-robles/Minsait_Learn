@@ -52,6 +52,7 @@ export class SignupFormComponent implements OnInit {
 			if (type2 != '') 
 				types.push(type2);
 			const pokemon: fakePokemon = {
+				id: '',
 				name: this.userRegisterForm.get('name').value,
 				frontImage: this.userRegisterForm.get('frontImage').value,
 				backImage: this.userRegisterForm.get('backImage').value,

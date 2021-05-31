@@ -19,6 +19,7 @@ export class ViewFakePokemonsComponent implements OnInit {
       let pokemon: fakePokemon;
       for (let i in data){
         pokemon = {
+          id: data[i].id,
           name: data[i].name,
           frontImage: data[i].frontImage,
           backImage: data[i].backImage,
