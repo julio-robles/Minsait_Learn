@@ -13,49 +13,26 @@ router.get('/', async (req, res) => {
 		return res.status(500).json(err);
 	}
 });
-router.get('/:id', async (req, res) => {
-	const id = req.params.id;
-	try {
-		const game = await Game.findById(id);
-		if (game) {
-			return res.status(200).render('game', { title: "game-shop",  game: game });
-		} else {
-			return res.status(404).render('game', { title: "game-shop" });
-		}
-	} catch (err) {
-		return res.status(500).render('game', { title: "game-shop" });
-	}
-});
-router.get('/:title', async (req, res) => {
-	const title = req.params.title;
-	try {
-		const games = await Game.find({title: title});
 
-		if (games) {
-			return res.status(200).render('games', { title: "game-shop",  games: games });
-		} else {
-			return res.status(404).json('No game found by this id');
-		}
-	} catch (err) {
-		return res.status(500).json(err);
-	}
-});
-router.post('/create', async (req, res, next) => {
+const fileMiddlewares = require('../middlewares/file.middleware');
+router.post('/create', [fileMiddlewares.upload.single('image'), fileMiddlewares.uploadToCloudinary], async (req, res, next) => {
+	const picture = req.file_url || null;
+
     try {
       // Crearemos una instancia de mascota con los datos enviados
       const newGame = new Game({
         title: req.body.title,
         description: req.body.description,
         price: req.body.price,
-        image:req.body.image
+        image:picture
       });
   
       // Guardamos la mascota en la DB
-      const createdGame = await newGame.save();
-      return res.status(200).json(createdGame);
+      	await newGame.save();
+  		return res.redirect('/games');
+
     } catch (err) {
-          // Lanzamos la función next con el error para que gestione todo Express
-      next(err);
+		next(err);
     }
   });
   router.put('/edit', async (req, res, next) => {
@@ -87,6 +64,39 @@ router.post('/create', async (req, res, next) => {
 	  next(err);
 	}
   });
+
+  router.get('/upload', (req, res) => {
+	return res.status(200).render('upload');
+  });
+
+  router.get('/:id', async (req, res) => {
+	const id = req.params.id;
+	try {
+		const game = await Game.findById(id);
+		if (game) {
+			return res.status(200).render('game', { title: "game-shop",  game: game });
+		} else {
+			return res.status(404).render('game', { title: "game-shop" });
+		}
+	} catch (err) {
+		return res.status(500).render('game', { title: "game-shop" });
+	}
+});
+router.get('/:title', async (req, res) => {
+	const title = req.params.title;
+	try {
+		const games = await Game.find({title: title});
+
+		if (games) {
+			return res.status(200).render('games', { title: "game-shop",  games: games });
+		} else {
+			return res.status(404).json('No game found by this id');
+		}
+	} catch (err) {
+		return res.status(500).json(err);
+	}
+});
+
 
 module.exports = router;
 

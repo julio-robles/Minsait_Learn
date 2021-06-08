@@ -11,7 +11,9 @@
         <h3>{{ this.game.title }}</h3>
         <h3>{{ this.game.description }}</h3>
         <h3>{{ this.game.price }}</h3>
-        <img src={{ this.game.image }}></img>
+        {{#if this.game.image}}
+          <img src="{{ this.game.image }}" alt={{this.game.title}} width="200"></img>
+        {{/if}}  
 	{{else}}
 		<h3>No hemos encontrado el juego que buscas!</h3>
     {{/if}}

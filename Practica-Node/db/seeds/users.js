@@ -22,11 +22,11 @@ function hashPass(){
     ];
     
     const userDocuments = user.map(user => new User(user));
-    
-    
-    
+    const DB_URL = "mongodb+srv://admin:verySecurePassword@cluster0.m5exa.mongodb.net/ecommerce?retryWrites=true&w=majority";
+
+  
     mongoose
-      .connect('mongodb://localhost:27017/ecommerce', {
+      .connect(DB_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })

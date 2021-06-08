@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>game-shop upload</title>
+  <link rel="stylesheet" href="/stylesheets/new-pet.css">
+</head>
+<body>
+  <h1>Subir un nuevo juego</h1>
+  <form action="/games/create" method="POST" enctype="multipart/form-data">
+    <label for="title">
+      <p>Titulo</p>
+      <input type="text" name="title">
+    </label>
+    <label for="description">
+      <p>Descripción</p>
+      <input type="text" name="description">
+    </label>
+    <label for="price">
+      <p>Precio</p>
+      <input type="text" name="price">
+    </label>
+    <label for="image">
+      <p>Imagen</p>
+      <input type="file" name="image" accept="image/png, image/jpeg">
+    </label>
+    <input type="submit" value="Crear juego">
+  </form>
+</body>
+</html>
