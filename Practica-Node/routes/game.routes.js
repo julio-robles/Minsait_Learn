@@ -7,7 +7,8 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
 	try {
-		const games = await Game.find();
+		const games = await Game.find().limit(10).sort({createdAt: 'descending'});
+		console.log(games);
 		return res.status(200).render('games', { title: "game-shop", games: games });
 	} catch (err) {
 		return res.status(500).json(err);

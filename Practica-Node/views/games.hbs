@@ -11,16 +11,16 @@
     <a href="/games/upload">Subir</a>
     <div>
         {{#each games}}
-        <a href= "/games/{{this.id}}">
-            <div>
-                <h3>{{ this.title }}</h3>
-                <h3>{{ this.description }}</h3>
-                <h3>{{ this.price }}</h3>
-                {{#if this.image}}
-                    <img src="{{ this.image }}" alt={{this.title}} width="200"></img>
-                {{/if}}    
-            </div>
-        </a>
+            <a href= "/games/{{this.id}}">
+                <div>
+                    <h3>{{ this.title }}</h3>
+                    <h3>{{ this.description }}</h3>
+                    <h3>{{ this.price }}</h3>
+                    {{#if this.image}}
+                        <img src="{{ this.image }}" alt={{this.title}} width="200"></img>
+                    {{/if}}    
+                </div>
+            </a>
         {{/each}}
     </div>
 </body>
