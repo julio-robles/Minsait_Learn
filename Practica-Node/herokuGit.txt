@@ -1,0 +1,5 @@
+heroku login
+heroku git:clone -a node-minsaitlearn
+git add .
+git commit -am "make it better"
+git push heroku master
