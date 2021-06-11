@@ -1,8 +1,12 @@
 const express = require('express');
 require('../db/conection.js');
 const Game = require('../db/models/game');
+const User = require('../db/models/user');
+
 const router = express.Router();
 const authMiddleware = require('../middlewares/auth.middleware');
+
+
 const LIMIT = 10;
 
 
@@ -89,7 +93,6 @@ router.post('/create', [fileMiddlewares.upload.single('image'), fileMiddlewares.
 
   router.get('/game/:id', async (req, res) => {
 	const id = req.params.id;
-	console.log(id);
 	try {
 		const game = await Game.findById(id);
 		if (game) {
@@ -99,21 +102,65 @@ router.post('/create', [fileMiddlewares.upload.single('image'), fileMiddlewares.
 		return res.status(500).render('game', { title: "game-shop" });
 	}
 });
-router.get('/game/:title', async (req, res) => {
-	const title = req.params.title;
-	try {
-		const games = await Game.find({title: title});
 
-		if (games) {
-			return res.status(200).render('games', { title: "game-shop",  games: games });
-		} else {
-			return res.status(404).json('No game found by this id');
-		}
+router.post('/search', async (req, res) => {
+	const search = req.body.title;
+	try {
+		const games = await Game.find({'title': { $regex: search, $options: 'i' }}).sort({createdAt: 'descending'});
+		return res.status(200).render('games', { title: "game-shop", games: games });
 	} catch (err) {
 		return res.status(500).json(err);
 	}
 });
 
+router.post('/filter', async (req, res) => {
+	const min = req.body.min;
+	const max = req.body.max;
+	try {
+		const games = await Game.find({'price': {$gte: min}, 'price': {$lte: max}}).sort({createdAt: 'descending'});
+		return res.status(200).render('games', { title: "game-shop", games: games });
+	} catch (err) {
+		return res.status(500).json(err);
+	}
+});
+
+router.get('/cart', async (req, res) => {
+	const userGames = await User.findById(req.session.passport.user).populate('cart');
+	if (userGames.cart[0]){
+		let total = 0;
+		console.log("first holaaaaaaaa");
+		for (x in userGames.cart){
+			total += Number(userGames.cart[x]['price']);
+			console.log(total);
+		}
+		return res.status(200).render('cart', { title: "game-shop cart", games: userGames.cart, total: total });
+	}
+	else
+		return res.status(200).render('cart', { title: "game-shop cart", games: userGames.cart });
+});
+
+router.post('/cart', async (req, res) => {
+	const id = req.body.id;	
+	try {
+		const user = await User.findById(req.session.passport.user).populate('cart');
+		user.cart.push(id);
+		await user.save();
+		return res.status(200).redirect('/games/cart');
+	} catch (err) {
+		return res.status(500).json(err);
+	}
+});
+
+router.delete('/cart', async (req, res) => {
+	try {
+		const user = await User.findById(req.session.passport.user);		
+		user.cart = undefined;
+		await user.save();
+		return res.status(200).redirect('/games');
+	} catch (err) {
+		return res.status(500).json(err);
+	}
+});
 
 module.exports = router;
 

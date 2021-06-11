@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{ title }}</title>
+</head>
+
+<body>
+    <h1>Carrito la compra :)</h1>
+
+    <div>
+        {{#if games}}
+            {{#each games}}
+            <a href= "/games/game/{{this.id}}">
+                <div>
+                    <h3>{{ this.title }}</h3>
+                    <h3>{{ this.price }}</h3>
+                </div>
+            </a>
+            {{/each}}
+            <h3>Total: {{this.total}}</h3>
+            <form action="/games/cart/?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" value="Comprar"></input>
+            </form>
+
+        {{else}}
+		    <h3>No hay juegos en la cesta</h3>
+        {{/if}}
+
+    </div>
+</body>
+
+</html>

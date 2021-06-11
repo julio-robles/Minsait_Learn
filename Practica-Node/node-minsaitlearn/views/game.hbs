@@ -14,12 +14,19 @@
         {{#if this.game.image}}
           <img src="{{ this.game.image }}" alt={{this.game.title}} width="200"></img>
         {{/if}}  
-        <nav>
           <form action="/games/game/{{this.game.id}}?_method=DELETE" method="POST">
             <input type="hidden" name="_method" value="DELETE">
             <input type="submit" value="Borrar"></input>
           </form>
-        </nav>
+
+
+    <form action="/games/cart" method="POST">
+      <input type="hidden" name="id" value="{{this.id}}">
+      <input type="submit" value="Añadir al carrito">
+    </form>
+
+
+
 	{{else}}
 		<h3>No hemos encontrado el juego que buscas!</h3>
     {{/if}}

@@ -7,8 +7,32 @@
 
 <body>
     <h1>{{ title }}</h1>
+
     <a href="/">Atras</a>
     <a href="/games/upload">Subir</a>
+    <a href="/games/cart">Carrito</a>
+
+    <form action="/games/search/" method="POST">
+        <label for="title">
+        <p>Título</p>
+        <input type="text" name="title">
+        </label>
+        <input type="submit" value="Buscar">
+    </form>
+
+    <h2>Filtro de precio</h2>
+    <form action="/games/filter/" method="POST">
+        <label for="min">
+            <p>Mínimo</p>
+            <input type="text" name="min">
+        </label>
+        <label for="max">
+            <p>Máximo</p>
+            <input type="text" name="max">
+        </label>
+        <input type="submit" value="Buscar">
+    </form>
+
     <div>
         {{#each games}}
         <a href= "/games/game/{{this.id}}">
@@ -23,8 +47,10 @@
         </a>
         {{/each}}
     </div>
-    <a href= "/games/next/{{ prev }}">Anterior</a>
-    {{#if games}}
+    {{#if prev}}
+        <a href= "/games/next/{{ prev }}">Anterior</a>
+    {{/if}}
+    {{#if next}}
         <a href="/games/next/{{ next }}">Siguiente</a>
     {{/if}}
 
