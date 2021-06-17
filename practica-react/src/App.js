@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { Home } from './components/Home';
 import { Tictactoe } from './components/Tictactoe';
+import { Hangman } from './components/Hangman';
+
 
 import logo from './logo.svg';
 import './App.css';
@@ -16,8 +18,9 @@ const App = () => {
         </header>
 
         <Switch>
-          <Route path="/tictactoe" exact component={Tictactoe} />
           <Route path="/" exact component={Home} />
+          <Route path="/tictactoe" exact component={Tictactoe} />
+          <Route path="/hangman" exact component={Hangman} />
         </Switch>
       </div>
     </Router>

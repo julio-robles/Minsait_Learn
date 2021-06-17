@@ -13,6 +13,7 @@ export const Home = () => {
       <h1>Welcome to Game Hub!</h1>
 
       <Link style={linkStyle} to="/tictactoe"><h2>Tic Tac Toe</h2></Link>
+      <Link style={linkStyle} to="/hangman"><h2>Hangman</h2></Link>
     </div>
   );
 };
