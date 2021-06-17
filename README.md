@@ -11,3 +11,5 @@ Práctica 2  ->  Práctica-Landing-Js                                           
 Práctica 3  ->  Práctica-Angular                                                              Done
 
 Práctica 4  ->  Práctica-Node  ( https://node-minsaitlearn.herokuapp.com/ )                   Done
+
+Práctica 5  ->  práctica-react                                                                Desarrollo
