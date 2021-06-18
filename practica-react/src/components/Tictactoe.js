@@ -27,14 +27,12 @@ export const Tictactoe = () => {
     const [contX, setContX] = useState(0);
     const [contO, setContO] = useState(0);
 
-
     useEffect(() => {
         setTurn('X');
         setIsStarted(1);
         setCellList(cleanTable);
         setIsFull(0);
     }, [isFull]);
-
 
     const winningConditions = [
         [0, 1, 2],
@@ -80,7 +78,6 @@ export const Tictactoe = () => {
             checkWin();
         }
     }
-
 
     function refreshGame(){
         setCellList(cleanTable);

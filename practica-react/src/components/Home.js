@@ -14,6 +14,7 @@ export const Home = () => {
 
       <Link style={linkStyle} to="/tictactoe"><h2>Tic Tac Toe</h2></Link>
       <Link style={linkStyle} to="/hangman"><h2>Hangman</h2></Link>
+      <Link style={linkStyle} to="/sudoku"><h2>Sudoku</h2></Link>
     </div>
   );
 };

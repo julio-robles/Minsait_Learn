@@ -9,11 +9,11 @@ export const Hangman = () => {
     const [secret, setSecret] = useState(null);
     const [coolSecret, setCoolSecret] = useState(null);
 
-    
     const MAX_TURNS = 7;
     const [nTurn, setNTurn] = useState(0);
 
     const [reset, setReset] = useState(0);
+    
     useEffect(() => {
         setReset(0);
         const words = [
@@ -67,20 +67,25 @@ export const Hangman = () => {
         }
     }
 
+    function refreshGame(){
+        setReset(1);
+    }
+
     const linkStyle = {
         margin: "1rem",
         textDecoration: "none",
         color: 'blue'
-      };
+    };
 
     const formStyle= {
         display: "flex",
-        flexDirection: "column"
-      };
+        flexDirection: "column",
+        alignItems: "center"
+    };
 
     const buttonStyle={
-        widht: "100px"
-    }
+        marginTop: "10px"
+    };
 
     return (
     <div>
@@ -89,19 +94,19 @@ export const Hangman = () => {
             <Link style={linkStyle} to="/"><h2>Back to main menu</h2></Link>
         </div>
 
+        <Button variant="contained" color="primary" style={{marginBottom: "20px"}} onClick={refreshGame}>Reiniciar juego</Button>
+
         <h1>Número de turnos disponibles: {MAX_TURNS - nTurn + 1}</h1>
         
         <h1>{coolSecret}</h1>
 
         <Form onSubmit={handleSubmit} style={formStyle}>
-            <Form.Label>
-                Letra:
-                <Form.Control type="text"
-                    value={letter}
-                    onChange={e => {
-                        if (e.target.value.length <= 1) setLetter(e.target.value.toLowerCase());
-                    }} />
-            </Form.Label>
+            <Form.Control type="text"
+                value={letter}
+                placeholder="Letra"
+                onChange={e => {
+                    if (e.target.value.length <= 1) setLetter(e.target.value.toLowerCase());
+                }} />
             <Button type="submit" value="Submit" variant="contained" color="primary" style={buttonStyle}>Comprobar</Button>
         </Form>
     </div>

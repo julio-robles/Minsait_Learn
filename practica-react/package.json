@@ -15,7 +15,8 @@
     "react-hook-form": "^7.8.8",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3"
+    "react-scripts": "4.0.3",
+    "sudoku": "^0.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
