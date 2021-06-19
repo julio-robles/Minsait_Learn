@@ -35,9 +35,7 @@ export const Hangman = () => {
             tempSecret += "_";
         }
         tempSecret += "_";
-        setSecret(tempSecret);
-        console.log(tempSecret);
-        
+        setSecret(tempSecret); 
         setCoolSecret(tempSecret.split('').join(' '));
         setNTurn(0);
     }, [reset]);
@@ -47,13 +45,13 @@ export const Hangman = () => {
         if (word.includes(letter)){
             var newSecret = [...secret];
             for (let i = 0; i < word.length; i++){
-                if (word[i] == letter){
+                if (word[i] === letter){
                     newSecret[i] = letter;
                 }
             }
             setSecret(newSecret);
             setCoolSecret(newSecret.join(' ').split('').join(' '));
-            if (word == newSecret.join("")){
+            if (word === newSecret.join("")){
                 alert("Ganaste!! La palabra era -> " + word);
                 setReset(1);
             }

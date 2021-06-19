@@ -59,21 +59,21 @@ export const Tictactoe = () => {
             let a = cellList[winningConditions[x][0]].value;
             let b = cellList[winningConditions[x][1]].value;
             let c = cellList[winningConditions[x][2]].value;
-            if (a != null && a === b && b === c) {
+            if (a !== null && a === b && b === c) {
                 setIsStarted(0);
                 alert("Ha ganado el jugador: " + a);
-                if(a == 'X') setContX(contX+1);
+                if(a === 'X') setContX(contX+1);
                 else setContO(contO+1);
             }
         }
     }
 
     const updateCell = index => e => {
-        if (cellList[index].value == null && isStarted == 1){
+        if (cellList[index].value === null && isStarted === 1){
             let newList = [...cellList];
             newList[index].value = turn;
             setCellList(newList);
-            if(turn == 'X') setTurn('O');
+            if(turn === 'X') setTurn('O');
             else setTurn('X');
             checkWin();
         }
