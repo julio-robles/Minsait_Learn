@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "user",
+      "email": "user@email.com",
+      "password": "password"
+    },
+    {
+      "id": "2",
+      "username": "1",
+      "email": "1",
+      "password": "1"
+    }
+  ],
+  "loggedin": [
+    {
+      "email": "1",
+      "password": "1",
+      "id": 1
+    }
+  ]
+}

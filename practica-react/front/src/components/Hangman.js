@@ -8,7 +8,7 @@ export const Hangman = () => {
     const [letter, setLetter] = useState("");
     const [secret, setSecret] = useState(null);
     const [coolSecret, setCoolSecret] = useState(null);
-
+    const [wrongLetters, setWrongLetters] = useState(null);
     const MAX_TURNS = 7;
     const [nTurn, setNTurn] = useState(0);
 
@@ -35,6 +35,7 @@ export const Hangman = () => {
             tempSecret += "_";
         }
         tempSecret += "_";
+        setWrongLetters('');
         setSecret(tempSecret); 
         setCoolSecret(tempSecret.split('').join(' '));
         setNTurn(0);
@@ -56,13 +57,25 @@ export const Hangman = () => {
                 setReset(1);
             }
         }
-        else{
+        else if (!wrongLetters.includes(letter)){
+            console.log(wrongLetters);
+            let newWrongLetters = [...wrongLetters];
+            setWrongLetters(newWrongLetters.concat(' ', letter));
+
             setNTurn(nTurn + 1);
             if (nTurn >= MAX_TURNS){
                 alert("Perdiste!! La palabra era -> " + word);
                 setReset(1);
             }
         }
+    }
+
+    const WrongLetters = () => {
+        if(wrongLetters)
+            return <div><h2> Lettras erroneas </h2><h3>{wrongLetters}</h3></div>;
+        else
+            return <div></div>;
+
     }
 
     function refreshGame(){
@@ -97,6 +110,8 @@ export const Hangman = () => {
         <h1>Número de turnos disponibles: {MAX_TURNS - nTurn + 1}</h1>
         
         <h1>{coolSecret}</h1>
+
+        <WrongLetters />
 
         <Form onSubmit={handleSubmit} style={formStyle}>
             <Form.Control type="text"
