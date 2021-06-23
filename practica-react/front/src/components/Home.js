@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
-import { logout } from '../api/auth';
 
 export const Home = () => {
-
+  console.log("Home -> " + localStorage.getItem("isAuthenticated"));
   const handleOnClickLogout = async () => {
-    await logout();
+    localStorage.setItem("isAuthenticated", "false");
+    window.location.pathname = "/";    
   };
 
     const linkStyle = {
@@ -22,6 +22,8 @@ export const Home = () => {
       <Link style={linkStyle} to="/tictactoe"><h2>Tic Tac Toe</h2></Link>
       <Link style={linkStyle} to="/hangman"><h2>Hangman</h2></Link>
       <Link style={linkStyle} to="/sudoku"><h2>Sudoku</h2></Link>
+
+      
 
       <button onClick={handleOnClickLogout}>Cerrar sesión</button>
 

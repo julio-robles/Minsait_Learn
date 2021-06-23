@@ -20,7 +20,13 @@ export const RegisterForm = () => {
     const onSubmit = async (evt) => {
       try {
         const data = await Register(evt);
-        console.log('¡Registro completado!', JSON.stringify(data));
+        console.log(data);
+        if (data){
+          localStorage.setItem("isAuthenticated", "true");
+          window.location.pathname = "/";
+        }
+        else 
+          localStorage.setItem("isAuthenticated", "false");
       } catch (err) {
         console.log(err);
       }

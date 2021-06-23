@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 
-import { login } from '../../api/auth';
+import { Login } from '../../api/auth';
 
 export const LoginForm = () => {  
     
@@ -19,8 +19,13 @@ export const LoginForm = () => {
 
   const onSubmit = async (e) => {
     try {
-      const data = await login(e);
-      console.log('Login completado!', data);
+      const data = await Login(e);
+      if (data.length > 0){
+        localStorage.setItem("isAuthenticated", "true");
+        window.location.pathname = "/";
+      }
+      else 
+        localStorage.setItem("isAuthenticated", "false");
     } catch (err) {
         console.log(err);
     }

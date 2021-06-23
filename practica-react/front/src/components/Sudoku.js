@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import { makepuzzle, solvepuzzle, ratepuzzle } from "sudoku";
+import { makepuzzle, solvepuzzle } from "sudoku";
 
 export const Sudoku = () => {
     const [sudokuBoard, setSudokuBoard] = useState(null);
@@ -44,7 +44,7 @@ export const Sudoku = () => {
             for (let i = 0, x = 0; i <= sudokuBoard.length; i++, x++){
                 if (x >= sqrtLength){
                     x = 0;
-                    tempBoard.push(<Grid container container justify="center" xs={9}> {tempRow} </Grid>);
+                    tempBoard.push(<Grid container justify="center" xs={9}> {tempRow} </Grid>);
                     tempRow = [];
                 }
                 if (sudokuBoard[i] !== '' && initSudokuBoard[i] !== '') 

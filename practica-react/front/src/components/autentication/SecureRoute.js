@@ -1,25 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route, Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
-export const SecureRoute = () => {
-
-    const { hasUser, ...restProps } = useState(null);
-
-    return hasUser ? <Route {...restProps} /> : <Redirect to="/" />;
-
+function SecureRoute ({ component: Component, ...restOfProps }) {
+  const isAuthenticated = localStorage.getItem("isAuthenticated");
+  console.log(isAuthenticated);
+  return (
+  <Route
+  {...restOfProps}
+  render={(props) =>
+    isAuthenticated === "true" ? <Component {...props} /> : <Redirect to="/login" />
+  }
+  />
+);
 }
-SecureRoute.propTypes = {
-  hasUser: PropTypes.bool.isRequired,
-};
-
-export const NoUserRoute = () => {
-
-    const { hasUser, ...restProps } = useState(null);
-
-    return !hasUser ? <Route {...restProps} /> : <Redirect to="/" />;
-
-}
-NoUserRoute.propTypes = {
-    hasUser: PropTypes.bool.isRequired,
-  };
+export default SecureRoute;
