@@ -7,6 +7,7 @@ import { Sudoku } from './components/Sudoku';
 import { RegisterForm } from './components/autentication/RegisterForm';
 import { LoginForm } from './components/autentication/LoginForm';
 import SecureRoute from './components/autentication/SecureRoute';
+import NoSecureRoute from './components/autentication/NoSecureRoute';
 
 import logo from './logo.svg';
 import './App.css';
@@ -21,12 +22,12 @@ const App = () => {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <BrowserRouter>
-            <Route path="/" component={Home} />
-            <Route exact path="/register" component={RegisterForm}/>
-            <Route exact path="/login" component={LoginForm}/>
-            <SecureRoute exact path="/tictactoe" component={Tictactoe}/>
-            <SecureRoute exact path="/hangman" component={Hangman}/>
-            <SecureRoute exact path="/sudoku" component={Sudoku}/>
+          <Route path="/" component={Home} />
+          <NoSecureRoute exact path="/register" component={RegisterForm}/>
+          <NoSecureRoute exact path="/login" component={LoginForm}/>
+          <SecureRoute exact path="/tictactoe" component={Tictactoe}/>
+          <SecureRoute exact path="/hangman" component={Hangman}/>
+          <SecureRoute exact path="/sudoku" component={Sudoku}/>
         </BrowserRouter>
       </div>
   );

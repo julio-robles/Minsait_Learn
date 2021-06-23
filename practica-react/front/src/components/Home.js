@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 export const Home = () => {
-  console.log("Home -> " + localStorage.getItem("isAuthenticated"));
   const handleOnClickLogout = async () => {
     localStorage.setItem("isAuthenticated", "false");
     window.location.pathname = "/";    

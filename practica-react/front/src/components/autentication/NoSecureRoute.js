@@ -1,15 +1,15 @@
 import React from "react";
 import { Route, Redirect } from 'react-router-dom';
 
-function SecureRoute ({ component: Component, ...restOfProps }) {
+function NoSecureRoute ({ component: Component, ...restOfProps }) {
   const isAuthenticated = localStorage.getItem("isAuthenticated");
   return (
   <Route
   {...restOfProps}
   render={(props) =>
-    isAuthenticated === 'true' ? <Component {...props} /> : <Redirect to="/login" />
+    isAuthenticated === 'false' ? <Component {...props} /> : <Redirect to="/" />
   }
   />
 );
 }
-export default SecureRoute;
+export default NoSecureRoute;
